@@ -1,0 +1,69 @@
+local-helper-backend/
+│── pom.xml / build.gradle          # Add springdoc-openapi dependency
+│── README.md
+│── Dockerfile
+│── docker-compose.yml
+│── scripts/                        # CI/CD, deploy, DB scripts
+│
+├── src/
+│   ├── main/
+│   │   ├── java/com/localhelper/
+│   │   │   ├── config/             
+│   │   │   │   ├── SecurityConfig.java
+│   │   │   │   ├── DatabaseConfig.java
+│   │   │   │   └── SwaggerConfig.java      # ✅ Swagger/OpenAPI config
+│   │   │   │
+│   │   │   ├── controller/         # REST APIs
+│   │   │   │   ├── UserController.java
+│   │   │   │   ├── HelperController.java
+│   │   │   │   ├── AdminController.java
+│   │   │   │   └── AuthController.java
+│   │   │   │
+│   │   │   ├── dto/                # Request/Response DTOs
+│   │   │   │   ├── request/
+│   │   │   │   └── response/
+│   │   │   │
+│   │   │   ├── entity/             # JPA entities
+│   │   │   │   ├── User.java
+│   │   │   │   ├── Helper.java
+│   │   │   │   ├── ServiceRequest.java
+│   │   │   │   ├── Payment.java
+│   │   │   │   ├── Review.java
+│   │   │   │   └── Complaint.java
+│   │   │   │
+│   │   │   ├── exception/          # Custom exceptions + handler
+│   │   │   │   ├── BusinessException.java
+│   │   │   │   └── GlobalExceptionHandler.java
+│   │   │   │
+│   │   │   ├── repository/         # Repositories
+│   │   │   │   ├── UserRepository.java
+│   │   │   │   ├── HelperRepository.java
+│   │   │   │   └── ServiceRequestRepository.java
+│   │   │   │
+│   │   │   ├── security/           # JWT + Roles
+│   │   │   │   ├── JwtAuthenticationFilter.java
+│   │   │   │   ├── JwtProvider.java
+│   │   │   │   └── UserDetailsImpl.java
+│   │   │   │
+│   │   │   ├── service/            # Business logic
+│   │   │   │   ├── UserService.java
+│   │   │   │   ├── HelperService.java
+│   │   │   │   └── PaymentService.java
+│   │   │   │
+│   │   │   ├── util/               # Utils (mappers, email…)
+│   │   │   │   ├── EmailUtil.java
+│   │   │   │   └── MapperUtil.java
+│   │   │   │
+│   │   │   └── LocalHelperApp.java # Main Spring Boot app
+│   │   │
+│   │   └── resources/
+│   │       ├── application.yml
+│   │       ├── application-dev.yml
+│   │       ├── application-prod.yml
+│   │       ├── db/migration/
+│   │       └── logback-spring.xml
+│   │
+│   └── test/java/com/localhelper/
+│       ├── integration/
+│       ├── unit/
+│       └── TestApplication.java
